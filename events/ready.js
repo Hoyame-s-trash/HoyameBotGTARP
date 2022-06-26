@@ -4,11 +4,13 @@
  * PDX-License-Identifier: BSD-2-Clause
  */
 const config = require("../config.json");
+const MySQL = require("../utils/mysql.js");
 
 module.exports = (client) => {
     console.log(`Logged in as ${client.user.tag}!`);
-
-    client.user.setActivity(`Discord JS Bot Base | ${config.version}`, {
+    MySQL.initialize();
+    
+    client.user.setActivity(`obeir a hoyame`, {
         type: "PLAYING"
     });
 
