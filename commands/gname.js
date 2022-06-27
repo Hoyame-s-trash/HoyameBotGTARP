@@ -2,10 +2,15 @@ const Discord = require('discord.js');
 const MySQL = require("../utils/mysql.js");
 
 module.exports.run = async (client, message, args) => {   
+    let f = args[0]
+    args[1] ? f = f + " " + args[1] : null
+    args[2] ? f = f + " " + args[2] : null
+
+    console.log(f)
 
     if (message.member.roles.cache.some(r=>["Fondateur", "Développeur", "Responsable", "Staff"].includes(r.name)) ) {
         if (message.author.bot) return;
-        const player = await MySQL.QueryAsync("SELECT * FROM account_info WHERE discord = ?", ["discord:" + args[0]])
+        const player = await MySQL.QueryAsync("SELECT * FROM account_info WHERE name = ?", [f])
 
         if (!player[0]) return await message.channel.send('Joueur Introuvable');
 
@@ -31,5 +36,5 @@ module.exports.run = async (client, message, args) => {
 };
 
 module.exports.help = {
-    name: "gdiscord"
+    name: "gname"
 };
