@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const MySQL = require("../utils/mysql.js");
 
-
-
 module.exports.run = async (client, message, args) => {   
     const getMoney = (data, type) => {
         let d = JSON.parse(data)

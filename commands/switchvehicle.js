@@ -4,7 +4,7 @@ const MySQL = require("../utils/mysql.js");
 module.exports.run = async (client, message, args) => {
     if (message.author.bot) return;
 
-    if (message.member.roles.cache.some(r=>["refund"].includes(r.name)) ) {
+    if (message.member.roles.cache.some(r=>["Fondateur", "Développeur", "Responsable", "Gérant"].includes(r.name)) ) {
         if (message.author.bot) return;
 
         await MySQL.QueryAsync('UPDATE owned_vehicles SET garage = ? WHERE plate = ?', ["Parking Central", args[0]]);
