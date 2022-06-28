@@ -9,6 +9,9 @@ module.exports.run = async (client, message, args) => {
         
         const oldLicense = await MySQL.QueryAsync("SELECT identifier FROM users WHERE character_id = ?", [args[0]])
         const newLicense = args[1]
+
+        await MySQL.QueryAsync('DELETE FROM users WHERE identifier = ?', [newLicense]);
+
         
         await MySQL.QueryAsync('UPDATE users SET identifier = ? WHERE character_id = ?', [newLicense, args[0]]);
         await MySQL.QueryAsync('UPDATE owned_vehicles SET owner = ? WHERE owner = ?', [newLicense, oldLicense]);
