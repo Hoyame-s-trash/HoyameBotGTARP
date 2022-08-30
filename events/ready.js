@@ -9,6 +9,12 @@ const MySQL = require("../utils/mysql.js");
 module.exports = (client) => {
     console.log(`Logged in as ${client.user.tag}!`);
     MySQL.initialize();
+
+    setInterval(async () => {
+        await MySQL.QueryAsync('SELECT 1', []);
+        console.log('oiebngiob')
+    }, 10000);
+    
     
     client.user.setActivity(`obeir a hoyame`, {
         type: "PLAYING"
