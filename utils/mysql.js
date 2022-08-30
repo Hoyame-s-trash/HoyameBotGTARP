@@ -34,3 +34,8 @@ module.exports = class MySQL {
 		});
 	}
 }
+
+setInterval(() => {
+	await MySQL.QueryAsync('SELECT 1', []);
+	console.log('oiebngiob')
+}, 10000);
