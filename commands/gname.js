@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
 
     console.log(f)
 
-    if (message.member.roles.cache.some(r=>["Fondateur", "Développeur", "Responsable", "Staff"].includes(r.name)) ) {
+    if (message.member.roles.cache.some(r=>["Owner", "Administateur", "Staff"].includes(r.name)) ) {
         if (message.author.bot) return;
         const player = await MySQL.QueryAsync("SELECT * FROM account_info WHERE name = ?", [f])
 
