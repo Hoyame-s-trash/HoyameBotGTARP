@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const MySQL = require("../utils/mysql.js");
 
 module.exports.run = async (client, message, args) => {   
-    if (message.member.roles.cache.some(r=>["Owner", "Administateur", "Staff"].includes(r.name)) ) {
+    if (message.member.roles.cache.some(r=>["Owner", "Administrateur", "Staff"].includes(r.name)) ) {
         if (message.author.bot) return;
         const player = await MySQL.QueryAsync("SELECT * FROM seashield_banlist WHERE License = ?", [args[0]])
 

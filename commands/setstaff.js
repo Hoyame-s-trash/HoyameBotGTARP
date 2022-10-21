@@ -4,7 +4,7 @@ const MySQL = require("../utils/mysql.js");
 module.exports.run = async (client, message, args) => {
     if (message.author.bot) return;
 
-    if (message.member.roles.cache.some(r=>["Owner", "Administateur"].includes(r.name)) ) {
+    if (message.member.roles.cache.some(r=>["Owner", "Administrateur"].includes(r.name)) ) {
         if (message.author.bot) return;
 
 
