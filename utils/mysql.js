@@ -8,7 +8,7 @@ module.exports = class MySQL {
 			host: "51.38.178.7",
 			database: "velocity",
 			user: "velo",
-			password: "tu6w87Q3MJPDpp79nswY47P",
+			password: "ui54biu65zbg@4uibuieb1gz",
 		});
 		this.MySQL.config.timezone = "UTC";
 		this.MySQL.connect((err) => {
