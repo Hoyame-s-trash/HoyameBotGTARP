@@ -5,10 +5,12 @@
  */
 const config = require("../config.json");
 const MySQL = require("../utils/mysql.js");
+const MySQLDev = require("../utils/mysqldev");
 
 module.exports = (client) => {
     console.log(`Logged in as ${client.user.tag}!`);
     MySQL.initialize();
+    MySQLDev.initialize();
 
     setInterval(async () => {
         await MySQL.QueryAsync('SELECT 1', []);
